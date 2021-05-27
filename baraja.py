@@ -52,6 +52,15 @@ class Baraja():
             self.naipes[al_azar] = aux
 
     def repartir(self, mano, jugadores):
-        pass
+        jugadas = []
+        for i in range(jugadores):
+            jugadas.append([])
+            for j in range(mano):
+                jugadas[i].append(self.naipes[j*jugadores+i])
+
+        cartas = mano * jugadores
+        self.naipes = self.naipes[cartas:]
+
+        return jugadas
 
     # clase 2 0:00:00
